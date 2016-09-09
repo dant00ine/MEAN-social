@@ -2,17 +2,21 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 
-var User = require('../models/user.js');
+var User = require('../models/User.js');
 
 router.get('/', function(req, res){
   User.find({}, function(err, results){
-    if(err){
-      console.log(err);
-    } else {
-      res.json(results);
-    }
+    if(err){ console.log(err); }
+    else { res.json(results); }
   })
-});
+})
+
+router.get('/:id', function(req, res){
+  User.find({id: req.params.id}, function(err, results){
+    if(err){ console.log(err); }
+    else { res.json(results); }
+  })
+})
 
 router.get('/currentUser', function(req, res){
   res.json({user: req.user});

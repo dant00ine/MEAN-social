@@ -112,6 +112,16 @@ angular.module('myApp').factory('UsersService',
       });
     }
 
+    function getSingleUser(id, callback){
+      return $http.get('/user/'+id)
+      .success(function(response){
+        callback(response);
+      })
+      .error(function(response){
+        console.log("failed to get the single user: ", response);
+      })
+    }
+
     function getMessages(user_id, callback){
       return $http.get('/messages/'+ user_id)
       .success(function(response){
@@ -135,7 +145,8 @@ angular.module('myApp').factory('UsersService',
     return ({
       getUsers: getUsers,
       getMessages: getMessages,
-      addMessage: addMessage
+      addMessage: addMessage,
+      getSingleUser: getSingleUser
     });
 
 }]);
