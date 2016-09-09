@@ -1,5 +1,5 @@
 
-<a href="#/">Home</a>
+<a class="btn btn-default" href="#/">Home</a>
 <div ng-controller="logoutController">
   <a ng-click='logout()' class="btn btn-default">Logout</a>
 </div>
@@ -7,6 +7,7 @@
 
 <div class="row" ng-repeat="message in messages">
   <p class="col-md-3 well" style="margin-left: 15px;">
+    <strong>{{message.author}}: </strong>
     {{message.content}}
   </br>
     <span>written at: {{message.created_at}}</span>

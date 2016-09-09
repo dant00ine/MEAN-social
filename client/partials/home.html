@@ -1,9 +1,16 @@
-<div ng-controller="logoutController">
-  <a ng-click='logout()' class="btn btn-default">Logout</a>
-</div>
+
+<nav class="navbar navbar-default">
+  <div class="navbar-header">
+    <a class="btn btn-default navbar-btn"href="#/profile/"+{{currentUser.user.id}}>My Profile</a>
+  </div>
+  <div ng-controller="logoutController">
+    <a ng-click='logout()' class="btn btn-default pull-right">Logout</a>
+  </div>
+
+</nav>
 
 <h1>Profile App</h1>
-<p>Greetings, {{currentUser.username}}. Select a name below to view their wall</p>
+<p>Greetings, {{currentUser.user.username}}. </br> Select a name below to view their wall! </br> Please don't say MEAN stuff!</p>
 
 <h3>Users:</h3>
 <div>

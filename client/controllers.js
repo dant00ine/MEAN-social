@@ -91,16 +91,19 @@ angular.module('myApp').controller('messagesController',
     var id = $routeParams.id;
     var currentUser;
     AuthService.currentUser(function(data){
+      currentUser = data;
       $scope.currentUser = data;
     });
     UsersService.getMessages(id, function(data){
-      console.log("incoming messages (in ctrlr) ", data);
+      console.log(data);
       $scope.messages = data;
     });
 
     $scope.addMessage = function(){
       var newMessage = $scope.newMessage;
       newMessage.user_id = id;
+      newMessage.author = currentUser.user.username;
+      console.log(newMessage);
       UsersService.addMessage(id, newMessage, function(data){
         // $location.path('/profile/'+ data.user_id);
         $route.reload();
