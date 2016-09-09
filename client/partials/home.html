@@ -1,0 +1,11 @@
+<div ng-controller="logoutController">
+  <a ng-click='logout()' class="btn btn-default">Logout</a>
+</div>
+
+<h1>Profile App</h1>
+<p>Greetings, {{currentUser.username}}. Select a name below to view their wall</p>
+
+<h3>Users:</h3>
+<div>
+  <p ng-repeat="user in allUsers"><a ng-href="#/profile/{{user._id}}">{{user.username}}</a></p>
+</div>
