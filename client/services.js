@@ -111,17 +111,15 @@ angular.module('myApp').factory('UsersService',
         console.log("failed to get users: ", response);
       });
     }
-
-    function getSingleUser(id, callback){
-      return $http.get('/user/'+id)
-      .success(function(response){
-        callback(response);
-      })
-      .error(function(response){
-        console.log("failed to get the single user: ", response);
-      })
-    }
-
+    // function getSingleUser(id, callback){
+    //   return $http.get('/user/'+id)
+    //   .success(function(response){
+    //     callback(response);
+    //   })
+    //   .error(function(response){
+    //     console.log("failed to get the single user: ", response);
+    //   })
+    // }
     function getMessages(user_id, callback){
       return $http.get('/messages/'+ user_id)
       .success(function(response){
@@ -145,8 +143,7 @@ angular.module('myApp').factory('UsersService',
     return ({
       getUsers: getUsers,
       getMessages: getMessages,
-      addMessage: addMessage,
-      getSingleUser: getSingleUser
+      addMessage: addMessage
     });
 
 }]);

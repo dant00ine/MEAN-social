@@ -94,12 +94,12 @@ angular.module('myApp').controller('messagesController',
       currentUser = data;
       $scope.currentUser = data;
     });
-    UsersService.getSingleUser(id, function(data){
-      profileUser = data;
-      console.log("navigating to the profile");
-      console.log(profileUser);
-      $scope.profileUser = data;
-    });
+    // UsersService.getSingleUser(id, function(data){
+    //   profileUser = data;
+    //   console.log("navigating to the profile");
+    //   console.log(profileUser);
+    //   $scope.profileUser = data;
+    // });
     UsersService.getMessages(id, function(data){
       console.log(data);
       $scope.messages = data;

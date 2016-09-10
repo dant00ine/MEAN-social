@@ -11,12 +11,12 @@ router.get('/', function(req, res){
   })
 })
 
-router.get('/:id', function(req, res){
-  User.find({id: req.params.id}, function(err, results){
-    if(err){ console.log(err); }
-    else { res.json(results); }
-  })
-})
+// router.get('/:id', function(req, res){
+//   User.find({id: req.params.id}, function(err, results){
+//     if(err){ console.log(err); }
+//     else { res.json(results); }
+//   })
+// })
 
 router.get('/currentUser', function(req, res){
   res.json({user: req.user});
@@ -24,6 +24,7 @@ router.get('/currentUser', function(req, res){
 
 
 router.post('/register', function(req, res) {
+  console.log('here we are in register');
   User.register(new User({ username: req.body.username }),
     req.body.password, function(err, account) {
     if (err) {
