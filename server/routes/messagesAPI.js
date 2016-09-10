@@ -7,7 +7,6 @@ var Message = require('../models/Message.js');
 router.get('/:id', function(req, res){
   var id = req.params.id;
   Message.find({user_id: id}, function(err, results){
-    console.log(results);
     if(err){ console.log(err); }
     else { res.json(results); }
   })
