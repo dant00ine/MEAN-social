@@ -2,10 +2,8 @@ angular.module('myApp').factory('AuthService',
   ['$q', '$timeout', '$http',
   function ($q, $timeout, $http) {
 
-    // create user variable
     var user = null;
 
-    // authorization service functions
     function isLoggedIn(){
       if(user){ return true; }
       else { return false; }
@@ -86,7 +84,6 @@ angular.module('myApp').factory('AuthService',
       return deferred.promise;
     }
 
-    // return available functions for use in the controllers
     return ({
       isLoggedIn: isLoggedIn,
       currentUser: currentUser,

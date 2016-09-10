@@ -10,20 +10,15 @@ var path = require('path');
 var passport = require('passport');
 var localStrategy = require('passport-local' ).Strategy;
 
-// mongoose
 mongoose.connect('mongodb://localhost/mean-auth');
 
-// user schema/model
 var User = require('./models/User.js');
 
-// create instance of express
 var app = express();
 
-// require routes
 var userRoutes = require('./routes/usersAPI.js');
 var messageRoutes = require('./routes/messagesAPI.js');
 
-// define middleware
 app.use(express.static(path.join(__dirname, '../client')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -43,7 +38,6 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// routes
 app.use('/user/', userRoutes);
 app.use('/messages/', messageRoutes);
 
